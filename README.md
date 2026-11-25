@@ -80,5 +80,9 @@ data/, truth/            generated locally, never committed
 ## How we work
 
 Data Klub meets every Wednesday at 19:00 (Warsaw time) in a Discord voice channel, and chats in
-Discord. Pick a milestone from [docs/handoff.md](docs/handoff.md), open a branch, and send a small
-pull request with tests. Decisions that affect both repos are recorded as ADRs in House_Prices.
+Discord. Tasks live in Linear, one team per repo (ask Kubi for an invite). Pick a milestone from
+[docs/handoff.md](docs/handoff.md), open a branch, and send a small pull request with tests that
+names its Linear issue. Decisions that affect both repos are recorded as ADRs in House_Prices.
+
+To try Lambdas in the club's AWS sandbox, ask Kubi for a login and follow
+[infra/aws-team-access](infra/aws-team-access/README.md).

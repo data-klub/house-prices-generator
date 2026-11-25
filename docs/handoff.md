@@ -3,7 +3,7 @@
 Where the generator stands and what to build next. Read `CLAUDE.md` and `docs/spec.md` first.
 Update this file in the PR that finishes or changes a milestone.
 
-Last updated: 2026-11-19
+Last updated: 2026-11-25
 
 ## Current state
 
@@ -13,6 +13,8 @@ Last updated: 2026-11-19
 | Tests | `tests/test_scaffold.py` (import, config values, Lab 01 determinism) |
 | CI | ruff and pytest on ubuntu, windows and macos, plus a gitleaks scan |
 | Lab 01 | Working AWS lab in `labs/01-s3-data-lake/`: a daily Lambda writes 1,000 simple listings to S3 |
+| AWS team access | IAM users with MFA in group `data-klub-team`; setup in `infra/aws-team-access/` (House_Prices ADR 0011) |
+| Tasks | Linear, one team per repo (House_Prices ADR 0010) |
 
 ## Milestones
 
