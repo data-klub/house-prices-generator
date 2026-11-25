@@ -73,6 +73,7 @@ docs/                    spec (world, events, formats, API) and milestones
 src/house_prices_generator/
 tests/
 labs/01-s3-data-lake/    Lab 01: AWS warm-up (Lambda, S3, Athena)
+infra/aws-team-access/   how members get their own AWS login (IAM policies)
 data/, truth/            generated locally, never committed
 ```
 

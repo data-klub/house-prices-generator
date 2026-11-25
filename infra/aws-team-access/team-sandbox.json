@@ -1,0 +1,98 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ConsoleListsAndMetrics",
+      "Effect": "Allow",
+      "Action": [
+        "lambda:ListFunctions",
+        "lambda:GetAccountSettings",
+        "lambda:ListLayers",
+        "lambda:ListLayerVersions",
+        "lambda:GetLayerVersion",
+        "logs:DescribeLogGroups",
+        "cloudwatch:GetMetricData",
+        "cloudwatch:ListMetrics",
+        "s3:ListAllMyBuckets",
+        "iam:ListRoles",
+        "ssm:DescribeParameters",
+        "cloudshell:*"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "OwnLambdasInFrankfurtNamedDk",
+      "Effect": "Allow",
+      "Action": "lambda:*",
+      "Resource": "arn:aws:lambda:eu-central-1:<account-id>:function:dk-*"
+    },
+    {
+      "Sid": "UseOnlyTheTeamLambdaRole",
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "arn:aws:iam::<account-id>:role/data-klub-team-lambda",
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": "lambda.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid": "SeeTheTeamLambdaRole",
+      "Effect": "Allow",
+      "Action": "iam:GetRole",
+      "Resource": "arn:aws:iam::<account-id>:role/data-klub-team-lambda"
+    },
+    {
+      "Sid": "LogsOfDkLambdas",
+      "Effect": "Allow",
+      "Action": [
+        "logs:GetLogEvents",
+        "logs:FilterLogEvents",
+        "logs:DescribeLogStreams",
+        "logs:StartLiveTail",
+        "logs:StopLiveTail"
+      ],
+      "Resource": "arn:aws:logs:eu-central-1:<account-id>:log-group:/aws/lambda/dk-*"
+    },
+    {
+      "Sid": "ListTheBucket",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetBucketLocation"
+      ],
+      "Resource": "arn:aws:s3:::<bucket>"
+    },
+    {
+      "Sid": "ReadLabDataAndTeamFolders",
+      "Effect": "Allow",
+      "Action": "s3:GetObject",
+      "Resource": [
+        "arn:aws:s3:::<bucket>/raw/*",
+        "arn:aws:s3:::<bucket>/team/*"
+      ]
+    },
+    {
+      "Sid": "WriteOnlyYourOwnFolder",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Resource": "arn:aws:s3:::<bucket>/team/${aws:username}/*"
+    },
+    {
+      "Sid": "YourOwnSecretsInParameterStore",
+      "Effect": "Allow",
+      "Action": [
+        "ssm:PutParameter",
+        "ssm:GetParameter",
+        "ssm:GetParameters",
+        "ssm:DeleteParameter",
+        "ssm:AddTagsToResource"
+      ],
+      "Resource": "arn:aws:ssm:eu-central-1:<account-id>:parameter/data-klub/${aws:username}/*"
+    }
+  ]
+}
