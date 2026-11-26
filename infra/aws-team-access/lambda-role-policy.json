@@ -1,0 +1,33 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "WriteOwnLogs",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:eu-central-1:<account-id>:log-group:/aws/lambda/dk-*"
+    },
+    {
+      "Sid": "ReadLabData",
+      "Effect": "Allow",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::<bucket>/raw/*"
+    },
+    {
+      "Sid": "WriteTeamFolders",
+      "Effect": "Allow",
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::<bucket>/team/*"
+    },
+    {
+      "Sid": "ReadDatabricksSettings",
+      "Effect": "Allow",
+      "Action": "ssm:GetParameter",
+      "Resource": "arn:aws:ssm:eu-central-1:<account-id>:parameter/data-klub/*"
+    }
+  ]
+}
