@@ -1,7 +1,7 @@
 [project]
 name = "house-prices-generator"
 version = "0.1.0"
-description = "Seeded simulator of the Polish housing market, served through a mock listings API, for the Data Klub House_Prices pipeline."
+description = "Seeded simulator of the Polish housing market, served through a mock listings API, for the Data Klub DataKlubform pipeline."
 readme = "README.md"
 authors = [{ name = "Kubilay" }]
 requires-python = ">=3.12"
