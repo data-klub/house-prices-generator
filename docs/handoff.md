@@ -13,12 +13,12 @@ Last updated: 2026-11-25
 | Tests | `tests/test_scaffold.py` (import, config values, Lab 01 determinism) |
 | CI | ruff and pytest on ubuntu, windows and macos, plus a gitleaks scan |
 | Lab 01 | Working AWS lab in `labs/01-s3-data-lake/`: a daily Lambda writes 1,000 simple listings to S3 |
-| AWS team access | IAM users with MFA in group `data-klub-team`; setup in `infra/aws-team-access/` (House_Prices ADR 0011) |
-| Tasks | Linear, one team per repo (House_Prices ADR 0010) |
+| AWS team access | IAM users with MFA in group `data-klub-team`; setup in `infra/aws-team-access/` (DataKlubform ADR 0011) |
+| Tasks | Linear, one team per repo (DataKlubform ADR 0010) |
 
 ## Milestones
 
-Each step is one small PR with tests. House_Prices milestone 5 (the mock API adapter) needs G4.
+Each step is one small PR with tests. DataKlubform milestone 5 (the mock API adapter) needs G4.
 
 1. **G1 Geography.** `reference/locations_pl.csv`: all 16 voivodeships, about 50 cities with every
    Warsaw district, a sample of towns and villages; TERYT codes as text; base price per m² and a
@@ -32,7 +32,7 @@ Each step is one small PR with tests. House_Prices milestone 5 (the mock API ada
 5. **G5 Truth export.** `truth/` files for properties, listing↔property map, events and renovation
    labels (spec §2.1, §2.7).
 6. **G6 Edge cases.** The 28 injected cases in spec §2.8, each with a test.
-7. **Release v0.1.0.** Tag it; House_Prices pins it and removes its empty `generator/` and
+7. **Release v0.1.0.** Tag it; DataKlubform pins it and removes its empty `generator/` and
    `mock_api/` packages.
 
 ## Traps

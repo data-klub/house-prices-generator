@@ -7,16 +7,16 @@ Guidance for AI coding assistants working in this repo. Read this file first, th
 
 A seeded simulator of the Polish housing market that serves OLX-like and Otodom-like listings
 through a mock HTTP API. It is the fake data source for
-[House_Prices](https://github.com/data-klub/House_Prices), which crawls the API daily. Both are
+[DataKlubform](https://github.com/data-klub/DataKlubform), which crawls the API daily. Both are
 Data Klub learning projects.
 
 ## Hard rules
 
 - **Determinism:** same `seed` + same date ⇒ byte-identical output. Never use unseeded randomness
   or wall-clock time inside the generator.
-- **The API and payload formats are a contract with House_Prices.** Change them only together with
-  the House_Prices parsers, and keep golden-file tests for them.
-- **`truth/` is an answer key for tests.** House_Prices pipeline code never reads it.
+- **The API and payload formats are a contract with DataKlubform.** Change them only together with
+  the DataKlubform parsers, and keep golden-file tests for them.
+- **`truth/` is an answer key for tests.** DataKlubform pipeline code never reads it.
 - **Only synthetic data.** No real scraped listings, names, phones or emails, ever.
 - **No secrets in code, config or chat.** The API key comes from the `MOCK_API_KEY` environment variable.
 
@@ -24,7 +24,8 @@ Data Klub learning projects.
 
 - Several contributors on macOS and Windows; everything runs natively (no WSL, no Docker).
 - Use `pathlib`; text files are UTF-8 with LF (`.gitattributes`).
-- Polish geography keeps diacritics (Łódź, Białołęka). Generated text and labels are in English.
+- Field and column names are in English; generated content (titles, descriptions, labels) is in
+  Polish (ADR 0006). Polish text keeps diacritics (Łódź, Białołęka). Prices are in PLN.
 
 ## Tooling
 
@@ -42,7 +43,7 @@ uv run ruff check . && uv run ruff format .
 - Small PRs, one milestone step each; every PR has tests. Commit style: `feat:`, `fix:`, `test:`,
   `docs:`, `chore:`.
 - Public functions have type hints and a one-line docstring.
-- Decisions that affect both repos get an ADR in House_Prices `docs/adr/`.
+- Decisions that affect both repos get an ADR in DataKlubform `docs/adr/`.
 
 ## Teaching mode
 

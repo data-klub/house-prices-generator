@@ -7,8 +7,8 @@ the layout real data lakes use.
 
 This lab lives in the [house-prices-generator](../../README.md) repo: its small `generate.py` is
 where the full generator started. The club's main project,
-[House_Prices](https://github.com/data-klub/House_Prices), is a medallion lakehouse on Databricks
-fed by that generator. House_Prices runs on Databricks Free Edition and doesn't need AWS, so this
+[DataKlubform](https://github.com/data-klub/DataKlubform), is a medallion lakehouse on Databricks
+fed by that generator. DataKlubform runs on Databricks Free Edition and doesn't need AWS, so this
 lab is optional practice for anyone who wants to learn AWS.
 
 **Cost:** the AWS free plan covers this lab; a full month of daily runs costs a fraction of a cent.
